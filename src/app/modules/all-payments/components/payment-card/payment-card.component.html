@@ -1,0 +1,66 @@
+<div *ngIf="payment" fxLayout="row" class="payment-card" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+  <div fxLayout="row">
+    <div class="status-line status-colors" [ngClass]="getStatusClass()"></div>
+    <div fxLayout="column" fxLayoutGap="10px">
+      <div fxLayout="row" fxLayoutAlign="flex-start center" fxLayoutGap="10px" class="top-row">
+        <span>{{payment.name}}</span>
+        <span>•</span>
+        <span>{{payment.money_value}}</span>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="flex-start center" fxLayoutGap="10px" class="bottom-row">
+        <span>{{payment.hash_number}}</span>
+        <span>•</span>
+        <span>{{payment.date_info}}</span>
+        <span>•</span>
+        <span>{{payment.service_info}}</span>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="flex-start center" fxLayoutGap="10px" class="right-part">
+    <span>{{payment.due_date}}</span>
+    <mat-form-field *ngIf="statusField" appearance="outline" class="status-field">
+      <span *ngIf="payment?.status" matPrefix aria-hidden="false" class="status-icon status-colors" [ngClass]="getStatusClass()"></span>
+      <mat-select [formControl]="statusField">
+        <mat-select-trigger>
+          {{statusField?.value | titlecase}}
+        </mat-select-trigger>
+        <mat-option value="draft">
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <span matPrefix aria-hidden="false" class="status-icon"></span>
+            <span>Draft</span>
+          </div>
+        </mat-option>
+        <mat-option value="submitted">
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <span matPrefix aria-hidden="false" class="status-icon submitted"></span>
+            <span>Submitted</span>
+          </div>
+        </mat-option>
+        <mat-option value="viewed">
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <span matPrefix aria-hidden="false" class="status-icon viewed"></span>
+            <span>Viewed</span>
+          </div>
+        </mat-option>
+        <mat-option value="paid">
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <span matPrefix aria-hidden="false" class="status-icon paid"></span>
+            <span>Paid</span>
+          </div>
+        </mat-option>
+        <mat-option value="declined">
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <span matPrefix aria-hidden="false" class="status-icon declined"></span>
+            <span>Declined</span>
+          </div>
+        </mat-option>
+      </mat-select>
+      <div matSuffix>
+        <mat-icon aria-hidden="false" class="arrow-icon">keyboard_arrow_down</mat-icon>
+      </div>
+    </mat-form-field>
+    <button mat-icon-button aria-label="More">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </div>
+</div>

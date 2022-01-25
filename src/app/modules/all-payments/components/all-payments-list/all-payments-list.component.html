@@ -1,0 +1,13 @@
+<div fxFlexAlign="row" fxLayoutAlign="space-between center" class="top-menu">
+  <button mat-button class="status-button">Status</button>
+  <div fxFlexAlign="row" fxLayoutAlign="flex-start center" fxLayoutGap="27px">
+    <span class="proposals">1,888  Proposals</span>
+    <button mat-button class="sort-button">
+      <mat-icon aria-hidden="false">sort</mat-icon>
+      <span>Sort by</span>
+    </button>
+  </div>
+</div>
+<div fxFlexAlign="column" fxLayoutGap="10px">
+  <app-payment-card *ngFor="let payment of payments" [payment]="payment"></app-payment-card>
+</div>

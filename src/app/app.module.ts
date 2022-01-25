@@ -15,9 +15,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TabPlaceholderComponent } from './components/tab-placeholder/tab-placeholder.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TabPlaceholderComponent],
   imports: [
     BrowserModule,
     FlexLayoutModule,

@@ -7,13 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'test-task-payment-requests';
-  selectedTab = 0;
-
-  changeTab(index: number): void {
-    this.selectedTab = index;
-  }
-
-  getClassName(value: any): void{
-    console.log(value);
-  }
 }

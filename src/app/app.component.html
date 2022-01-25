@@ -2,10 +2,10 @@
   <div fxLayout="column" class="left-panel">
     <img src="assets/left-panel.png" alt="left panel">
   </div>
-  <div fxLayout="column" fxFlex="1 1 100%">
+  <div fxLayout="column" fxFlex="1 1 100%" class="center-content">
     <mat-toolbar color="secondary">
       <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
-        <span>Payment Requests</span>
+        <span class="toolbar-title">Payment Requests</span>
         <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
           <mat-form-field appearance="outline" fxFlexAlign="end" class="search-field">
             <mat-label>Search Invoices</mat-label>
@@ -18,81 +18,47 @@
         </div>
       </mat-toolbar-row>
     </mat-toolbar>
-    <mat-tab-group [selectedIndex]="selectedTab">
-      <mat-tab label="All">
-        <div fxLayout="row">
-          <div fxLayout="column" fxLayoutGap="10px">
-            <div fxLayout="row" fxLayoutGap="10px">
-              <span>Name</span>
-              <span>Price</span>
-            </div>
-            <div fxLayout="row" fxLayoutGap="10px">
-              <span>#2056</span>
-              <span>Date</span>
-              <span>Whole Home Speaker Install</span>
-            </div>
+    <div class="nav-panel" fxLayout="column">
+      <div fxLayout="row" fxLayoutAlign="flex-start center" fxLayoutGap="20px">
+        <a routerLink="all-payments" mat-button routerLinkActive="active">
+          <div fxLayout="column">
+            <span class="tab-text">All</span>
+            <div class="underscore"></div>
           </div>
-          <div fxLayout="row" fxLayoutGap="10px">
-            <span>Due on Jan 29, 2022</span>
-            <mat-form-field appearance="outline" class="status-field" #field>
-              <!--<mat-label>Status</mat-label>-->
-              <!--<mat-icon matPrefix aria-hidden="false" class="status-icon">fiber_manual_record</mat-icon>-->
-              <span matPrefix aria-hidden="false" class="status-icon"></span>
-              <mat-select>
-                <mat-option value="Draft">
-                  <span>Draft</span>
-                </mat-option>
-                <mat-option value="Submitted">
-                  <span>Submitted</span>
-                </mat-option>
-                <mat-option value="Paid">
-                  <span>Paid</span>
-                </mat-option>
-                <mat-option value="Declined">
-                  <span>Declined</span>
-                </mat-option>
-                <mat-option value="Viewed">
-                  <span>Viewed</span>
-                </mat-option>
-              </mat-select>
-              <div matSuffix>
-                <mat-icon aria-hidden="false" class="arrow-icon">keyboard_arrow_down</mat-icon>
-              </div>
-            </mat-form-field>
+        </a>
+        <a routerLink="outstanding" mat-button routerLinkActive="active">
+          <div fxLayout="column">
+            <span class="tab-text">Outstanding</span>
+            <div class="underscore"></div>
           </div>
-        </div>
-      </mat-tab>
-      <mat-tab label="Outstanding">Outstanding</mat-tab>
-      <mat-tab label="Paid">Paid</mat-tab>
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <button mat-icon-button [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()">
-            <span>More</span>
-            <mat-icon aria-hidden="false">keyboard_arrow_down</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="changeTab(4)">Archived</button>
-            <mat-divider class="divider"></mat-divider>
-            <button mat-menu-item (click)="changeTab(4)">Received Payments</button>
-            <button mat-menu-item (click)="changeTab(4)">Stripe Funding</button>
-          </mat-menu>
-          <!--<mat-tab label="Item 1">Item 1</mat-tab>
-          <mat-tab label="Item 2">Item 2</mat-tab>
-          <mat-tab label="Item 3">Item 3</mat-tab>-->
-          <!--<mat-form-field>
-            <mat-label>More</mat-label>
-            <mat-select>
-              <mat-option>
-                <span>Item 1</span>
-              </mat-option>
-              <mat-option>
-                <span>Item 2</span>
-              </mat-option>
-            </mat-select>
-          </mat-form-field>-->
-        </ng-template>
-      </mat-tab>
-    </mat-tab-group>
+        </a>
+        <a routerLink="paid" mat-button routerLinkActive="active">
+          <div fxLayout="column">
+            <span class="tab-text">Paid</span>
+            <div class="underscore"></div>
+          </div>
+        </a>
+        <a mat-button routerLinkActive="active">
+          <div fxLayout="column">
+            <div class="tab-text" fxLayout="row" fxLayoutAlign="flex-start center"
+                  [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()">
+              <span>More</span>
+              <mat-icon aria-hidden="false">keyboard_arrow_down</mat-icon>
+            </div>
+            <div class="underscore"></div>
+            <mat-menu #menu="matMenu" class="more-menu">
+              <button routerLink="more/archived" routerLinkActive="active" mat-menu-item>Archived</button>
+              <mat-divider class="divider"></mat-divider>
+              <button routerLink="more/received-payments" routerLinkActive="active"
+                      mat-menu-item>Received Payments</button>
+              <button routerLink="more/stripe-funding" routerLinkActive="active" mat-menu-item>Stripe Funding</button>
+            </mat-menu>
+          </div>
+        </a>
+      </div>
+      <div class="bottom-line"></div>
+    </div>
+    <router-outlet></router-outlet>
   </div>
   <div fxLayout="column" class="right-panel">
     <img src="assets/actions-panel.png" alt="actions panel">

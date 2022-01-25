@@ -8,6 +8,21 @@
   .right-panel {
     background: whitesmoke;
   }
+  .center-content {
+    padding: 15px 39px 0 27px;
+    mat-toolbar-row {
+      padding: 0;
+      height: unset;
+      .toolbar-title {
+        color: #000000;
+        font-family: "Open Sans", serif;
+        font-size: 26px;
+        font-weight: bold;
+        letter-spacing: -0.8px;
+        line-height: 36px;
+      }
+    }
+  }
 }
 
 .divider {
@@ -15,12 +30,7 @@
 }
 
 .search-field {
-  /*font-size: 12px;
-  color: #91949a;*/
-
-  // new styles
-
-  font-family: "Open Sans", serif;
+    font-family: "Open Sans", serif;
   font-size: 15px;
   letter-spacing: -0.1px;
   line-height: 20px;
@@ -31,15 +41,9 @@
     color: red;
   }
 
-  // TODO: floating label
-
   ::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
     color: green;
   }
-
-  /*::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label, .mat-form-field-appearance-outline.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label {
-    color: green;
-  }*/
 
   ::ng-deep .mat-form-field-wrapper {
     padding-bottom: 0;
@@ -98,31 +102,6 @@
   ::ng-deep .mat-select-arrow-wrapper {
     opacity: 0;
   }
-
-  // old styles
-
-  mat-icon {
-    color: #8e9197;
-  }
-
-  ::ng-deep .mat-form-field-wrapper {
-    padding-bottom: 0;
-    background: #e4e6eb;
-    border-radius: 25px;
-  }
-
-  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
-    top: 0;
-  }
-
-  ::ng-deep .mat-form-field-outline-start {
-    border-radius: 28px 0 0 28px !important;
-    min-width: 28px !important;
-  }
-
-  ::ng-deep .mat-form-field-outline-end {
-    border-radius: 0 28px 28px 0 !important;
-  }
 }
 
 .add-button {
@@ -130,90 +109,59 @@
   color: #ffffff;
 }
 
-.status-icon {
-  margin-right: 11px;
-  display: block;
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: #8E9197;
-  &.declined {
-    background: red;
+.nav-panel {
+  .bottom-line {
+    margin: 0 -39px 0 -27px;
+    border-bottom: 1px solid #E4E6EB;
   }
-  &.submitted {
-    background: #FFD213;
-  }
-  &.paid {
-    background: #42AD65;
+  a {
+    padding: 0;
+    min-width: unset;
+    opacity: 0.4;
+    color: #000000;
+    font-family: "Open Sans", serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.31px;
+    line-height: 20px;
+    text-align: center;
+    .tab-text {
+      padding: 0 5px;
+      mat-icon {
+        height: 18px;
+      }
+    }
+    .underscore {
+      opacity: 0;
+      height: 3px;
+      width: 100%;
+      border-radius: 100px 100px 0 0;
+      background-color: #262626;
+    }
+    &.active {
+      opacity: 1;
+      color: #262626;
+      font-family: "Open Sans", serif;
+      font-size: 15px;
+      font-weight: bold;
+      letter-spacing: -0.31px;
+      line-height: 20px;
+      .underscore {
+        opacity: 1;
+        background-color: #262626;
+      }
+    }
   }
 }
 
-.status-field {
-  font-size: 12px;
-  color: #91949a;
-  height: 35px;
-  width: 180px;
-
-  .arrow-icon {
-    align-items: center;
-    justify-content: center;
-    display: flex!important;
-    height: 5px;
-    width: 9px;
-  }
-
-  mat-select {
-    font-family: "Open Sans", serif;
-    font-size: 13px;
-    letter-spacing: -0.19px;
-    line-height: 18px;
-  }
-
-  ::ng-deep .mat-form-field-wrapper {
-    padding-bottom: 0;
-    border-radius: 25px;
-    height: 100%;
-    margin: 0;
-  }
-
-  ::ng-deep .mat-form-field-flex {
-    margin: 0;
-    padding: 0 16px 0 13px;
-    align-items: center;
-    height: 100%;
-  }
-
-  ::ng-deep .mat-form-field-outline {
-    top: 0;
-  }
-
-  ::ng-deep .mat-form-field-wrapper {
-    padding-bottom: 0;
-    border-radius: 25px;
-  }
-
-  ::ng-deep .mat-form-field-infix {
-    border: 0;
-  }
-
-  ::ng-deep .mat-form-field-prefix {
-    top: 0;
-  }
-
-  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
-    top: 0;
-  }
-
-  ::ng-deep .mat-form-field-outline-start {
-    border-radius: 28px 0 0 28px !important;
-    min-width: 28px !important;
-  }
-
-  ::ng-deep .mat-form-field-outline-end {
-    border-radius: 0 28px 28px 0 !important;
-  }
-
-  ::ng-deep .mat-select-arrow-wrapper {
-    opacity: 0;
+::ng-deep .more-menu {
+  box-sizing: border-box;
+  border: 1px solid rgba(0,0,0,0.04);
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.11);
+  button.active {
+    color: #262626;
+    font-weight: bold;
   }
 }

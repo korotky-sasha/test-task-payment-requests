@@ -1,0 +1,39 @@
+.top-menu {
+  margin: 22px 0;
+}
+
+.proposals {
+  color: #8E9197;
+  font-family: "Open Sans", serif;
+  font-size: 13px;
+  letter-spacing: -0.19px;
+  line-height: 18px;
+  text-align: right;
+}
+
+.status-button {
+  box-sizing: border-box;
+  border: 1px solid #D0D0D3;
+  border-radius: 17.5px;
+  padding: 5px 12px;
+  color: #27272A;
+  font-family: "Open Sans", serif;
+  font-size: 13px;
+  letter-spacing: -0.19px;
+  line-height: 18px;
+}
+
+.sort-button {
+  padding: 0;
+  color: #8E9197;
+  font-family: "Open Sans", serif;
+  font-size: 13px;
+  letter-spacing: -0.1px;
+  line-height: 18px;
+  mat-icon {
+    height: 18px;
+    width: 16px;
+    font-size: 18px;
+    margin-right: 6px;
+  }
+}
